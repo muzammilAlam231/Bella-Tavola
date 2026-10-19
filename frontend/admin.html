@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Staff dashboard | Bella Tavola</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin">
+  <main id="login-view" class="container narrow">
+    <h1>Staff login</h1>
+    <form id="login-form">
+      <label>Username <input name="username" autocomplete="username" required></label>
+      <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="btn" type="submit">Log in</button>
+      <p id="login-msg" class="msg" role="alert"></p>
+    </form>
+  </main>
+  <main id="app-view" class="container" hidden>
+    <div class="admin-bar"><h1>Dashboard</h1>
+      <button id="logout" class="btn btn-outline" type="button">Log out</button></div>
+    <p id="admin-msg" class="msg" role="status"></p>
+    <div class="tabs">
+      <button class="tab active" data-tab="reservations" type="button">Reservations</button>
+      <button class="tab" data-tab="menu" type="button">Menu</button>
+    </div>
+    <section id="tab-reservations">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Date</th><th>Time</th><th>Name</th><th>Guests</th><th>Contact</th>
+          <th>Notes</th><th>Status</th><th>Actions</th></tr></thead>
+        <tbody id="res-body"></tbody></table></div>
+    </section>
+    <section id="tab-menu" hidden>
+      <form id="menu-form" class="menu-form">
+        <input type="hidden" name="id">
+        <div class="form-row">
+          <label>Name <input name="name" required minlength="2"></label>
+          <label>Price (USD) <input name="price" type="number" step="0.01" min="0.01" required></label>
+        </div>
+        <div class="form-row">
+          <label>Category <input name="category" list="cats" required>
+            <datalist id="cats"><option>Starters</option><option>Mains</option>
+              <option>Desserts</option><option>Drinks</option></datalist></label>
+          <label>Ingredients <input name="ingredients"></label>
+        </div>
+        <label>Description <textarea name="description" rows="2"></textarea></label>
+        <div class="checks">
+          <label><input type="checkbox" name="is_vegetarian"> Vegetarian</label>
+          <label><input type="checkbox" name="is_vegan"> Vegan</label>
+          <label><input type="checkbox" name="is_gluten_free"> Gluten-free</label>
+          <label><input type="checkbox" name="is_featured"> Featured</label>
+          <label><input type="checkbox" name="is_available" checked> Available</label>
+        </div>
+        <button class="btn" type="submit" id="menu-save">Add item</button>
+        <button class="btn btn-outline" type="button" id="menu-cancel" hidden>Cancel edit</button>
+      </form>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Name</th><th>Category</th><th>Price</th><th>Tags</th><th>Available</th>
+          <th>Actions</th></tr></thead>
+        <tbody id="menu-body"></tbody></table></div>
+    </section>
+  </main>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

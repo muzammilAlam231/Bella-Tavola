@@ -1,0 +1,48 @@
+RESTAURANT = {
+    "name": "Bella Tavola",
+    "tagline": "Fresh Italian kitchen, made from scratch",
+    "address": "12 Garden Road, Karachi",
+    "phone": "+92 300 0000000",
+    "email": "hello@bellatavola.example",
+    "opening_hours": {"days": "Every day", "open": "12:00", "close": "22:00",
+                      "last_seating": "21:00"},
+    "reservation_policy": [
+        "Book at least 1 hour ahead and up to 60 days in advance.",
+        "Bookable times are every 30 minutes between 12:00 and 21:00.",
+        "Online bookings are for 1 to 12 guests. For larger groups please call us.",
+        "We hold your table for 15 minutes after the booking time.",
+        "To cancel or change a booking, call us at least 2 hours beforehand.",
+    ],
+}
+def _item(name, description, price, category, ingredients, veg=False, vegan=False,
+          gf=False, featured=False):
+    return {"name": name, "description": description, "price": price, "category": category,
+            "ingredients": ingredients, "is_vegetarian": veg or vegan, "is_vegan": vegan,
+            "is_gluten_free": gf, "is_featured": featured}
+SEED_MENU = [
+    _item("Bruschetta al Pomodoro", "Grilled sourdough, ripe tomatoes, basil and garlic.", 6.50,
+          "Starters", "sourdough bread, tomato, basil, garlic, olive oil", vegan=True),
+    _item("Burrata e Rucola", "Creamy burrata, rocket, cherry tomatoes and balsamic.", 9.00,
+          "Starters", "burrata, rocket, cherry tomatoes, balsamic vinegar, olive oil", veg=True, gf=True),
+    _item("Arancini", "Crisp saffron risotto balls filled with melted mozzarella.", 7.50,
+          "Starters", "risotto rice, saffron, mozzarella, parmesan, egg, breadcrumbs", veg=True),
+    _item("Margherita Pizza", "Wood-fired base, tomato, mozzarella and fresh basil.", 11.00,
+          "Mains", "wheat flour, tomato, mozzarella, basil, olive oil", veg=True, featured=True),
+    _item("Spaghetti Carbonara", "Classic Roman pasta with egg, pecorino and guanciale.", 13.50,
+          "Mains", "spaghetti, egg, pecorino, guanciale (cured pork), black pepper", featured=True),
+    _item("Mushroom Risotto", "Slow-cooked arborio rice with wild mushrooms and parmesan.", 14.00,
+          "Mains", "arborio rice, mixed mushrooms, parmesan, white wine, butter, onion",
+          veg=True, gf=True, featured=True),
+    _item("Grilled Sea Bass", "Sea bass fillet with lemon, capers and roasted potatoes.", 18.50,
+          "Mains", "sea bass, lemon, capers, olive oil, potatoes", gf=True),
+    _item("Tiramisu", "Espresso-soaked ladyfingers layered with mascarpone cream.", 7.00,
+          "Desserts", "mascarpone, espresso, ladyfingers, egg, sugar, cocoa", veg=True),
+    _item("Panna Cotta", "Vanilla cream pudding with berry compote.", 6.50,
+          "Desserts", "cream, sugar, vanilla, gelatin, berries", gf=True),
+    _item("Lemon Sorbet", "Refreshing dairy-free sorbet made with Sicilian lemons.", 5.00,
+          "Desserts", "lemon, sugar, water", vegan=True, gf=True),
+    _item("Fresh Lemonade", "House-made with mint and a splash of sparkling water.", 3.50,
+          "Drinks", "lemon, mint, sugar, sparkling water", vegan=True, gf=True),
+    _item("Espresso", "Double shot of our house roast.", 3.00,
+          "Drinks", "coffee", vegan=True, gf=True)
+]
