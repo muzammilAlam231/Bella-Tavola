@@ -1,0 +1,22 @@
+services:
+  bella-tavola:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      DATABASE_URL: ${DATABASE_URL:-sqlite:////data/restaurant.db}
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-change-me}
+      TIMEZONE: ${TIMEZONE:-Asia/Karachi}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      OPENROUTER_BASE_URL: ${OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}
+      CHAT_MODEL: ${CHAT_MODEL:-openai/gpt-4o-mini}
+    volumes:
+      - bella-tavola-data:/data
+    restart: unless-stopped
+
+volumes:
+  bella-tavola-data:
