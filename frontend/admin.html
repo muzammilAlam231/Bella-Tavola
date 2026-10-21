@@ -10,21 +10,28 @@
 </head>
 <body class="admin">
   <main id="login-view" class="container narrow">
-    <h1>Staff login</h1>
-    <form id="login-form">
-      <label>Username <input name="username" autocomplete="username" required></label>
-      <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
-      <button class="btn" type="submit">Log in</button>
-      <p id="login-msg" class="msg" role="alert"></p>
-    </form>
+    <div class="login-card">
+      <a href="/" class="admin-brand"><span class="logo-mark">BT</span><span>Bella Tavola</span></a>
+      <p class="eyebrow">Staff workspace</p>
+      <h1>Welcome back.</h1>
+      <p class="login-intro">Keep tonight’s service running beautifully.</p>
+      <form id="login-form">
+        <label>Username <input name="username" autocomplete="username" required></label>
+        <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="btn" type="submit">Enter dashboard <span>→</span></button>
+        <p id="login-msg" class="msg" role="alert"></p>
+      </form>
+    </div>
   </main>
   <main id="app-view" class="container" hidden>
-    <div class="admin-bar"><h1>Dashboard</h1>
+    <div class="admin-bar">
+      <div><a href="/" class="admin-brand"><span class="logo-mark">BT</span><span>Bella Tavola</span></a><p class="eyebrow">Staff workspace</p><h1>Good morning, team.</h1></div>
       <button id="logout" class="btn btn-outline" type="button">Log out</button></div>
+    <div class="dashboard-meta"><p>Manage your reservations and keep the menu fresh.</p><p class="date-label">Kitchen &middot; Karachi</p></div>
     <p id="admin-msg" class="msg" role="status"></p>
     <div class="tabs">
-      <button class="tab active" data-tab="reservations" type="button">Reservations</button>
-      <button class="tab" data-tab="menu" type="button">Menu</button>
+      <button class="tab active" data-tab="reservations" type="button"><span class="tab-number">01</span>Reservations</button>
+      <button class="tab" data-tab="menu" type="button"><span class="tab-number">02</span>Menu</button>
     </div>
     <section id="tab-reservations">
       <div class="table-wrap"><table>
@@ -62,6 +69,6 @@
         <tbody id="menu-body"></tbody></table></div>
     </section>
   </main>
-  <script src="/js/admin.js"></script>
+  <script src="/js/admin.js?v=2"></script>
 </body>
 </html>

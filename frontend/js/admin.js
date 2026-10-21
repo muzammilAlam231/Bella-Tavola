@@ -14,7 +14,12 @@ async function api(path, options = {}) {
         ...options,
         headers: { "Content-Type": "application/json", Authorization: `Basic ${auth}` },
     });
-    if (res.status === 401) { logout(); throw new Error("Please log in again."); }
+    if (res.status === 401) {
+        if (auth) logout();
+        const error = new Error("Your username or password is incorrect.");
+        error.code = "AUTH_FAILED";
+        throw error;
+    }
     if (res.status === 204) return null;
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(extractError(data));
@@ -52,7 +57,9 @@ $("#login-form").addEventListener("submit", async (e) => {
         e.target.reset(); setMsg($("#login-msg"), "", "");
         showApp();
     } catch (err) {
-        setMsg($("#login-msg"), "error", "Wrong username or password.");
+        setMsg($("#login-msg"), "error", err.code === "AUTH_FAILED"
+            ? "That username or password was not accepted. Please try again."
+            : "We could not reach the dashboard. Check the server and try again.");
     }
 });
 /* ---------- tabs ---------- */

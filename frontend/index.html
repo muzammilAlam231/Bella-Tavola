@@ -12,8 +12,8 @@
 <body>
     <header class="navbar">
         <div class="container nav-inner">
-            <a href="#home" class="logo">Bella Tavola</a>
-            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+            <a href="#home" class="logo"><span class="logo-mark">BT</span><span>Bella Tavola</span></a>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation"><span></span><span></span></button>
             <ul id="nav-links" class="nav-links">
                 <li><a href="#featured">Featured</a></li>
                 <li><a href="#menu">Menu</a></li>
@@ -25,24 +25,39 @@
     <main>
         <section id="home" class="hero">
             <div class="container">
-                <h1>Fresh Italian,<br>made from scratch</h1>
-                <p>Handmade pasta, wood-fired pizza and desserts worth saving room for.</p>
+                <div class="hero-copy">
+                    <p class="eyebrow">Cucina italiana · Karachi</p>
+                    <h1>Good food.<br><em>Good company.</em><br>Always.</h1>
+                    <p class="hero-lede">Handmade pasta, wood-fired pizza and the kind of evening you wish would last a little longer.</p>
+                </div>
                 <div class="hero-actions">
                     <a href="#menu" class="btn">View the menu</a>
                     <a href="#reserve" class="btn btn-outline">Book a table</a>
                 </div>
+                <div class="hero-note"><span class="hero-note-line"></span><span>Made fresh daily, served with heart</span></div>
+                <div class="hero-art" aria-hidden="true">
+                    <div class="plate"><div class="plate-inner"><span class="leaf leaf-one"></span><span class="leaf leaf-two"></span><span class="tomato tomato-one"></span><span class="tomato tomato-two"></span><span class="pasta pasta-one"></span><span class="pasta pasta-two"></span></div></div>
+                    <div class="art-caption"><strong>Seasonal</strong><span>menu / 2026</span></div>
+                </div>
+            </div>
+        </section>
+        <section class="experience-strip" aria-label="The Bella Tavola experience">
+            <div class="container experience-grid">
+                <div><span class="experience-number">01</span><strong>Handmade daily</strong><span>pasta rolled every morning</span></div>
+                <div><span class="experience-number">02</span><strong>Local at heart</strong><span>ingredients with a story</span></div>
+                <div><span class="experience-number">03</span><strong>Slow evenings</strong><span>good food, no rush</span></div>
             </div>
         </section>
         <section id="featured">
             <div class="container">
-                <h2>Featured dishes</h2>
+                <div class="section-heading"><p class="eyebrow">From our kitchen</p><h2>Made to be remembered</h2></div>
                 <p class="section-sub">Guest favourites, cooked fresh every day.</p>
                 <div id="featured-grid" class="grid"></div>
             </div>
         </section>
         <section id="menu" class="alt">
             <div class="container">
-                <h2>Our menu</h2>
+                <div class="section-heading"><p class="eyebrow">The menu</p><h2>A little taste of Italy</h2></div>
                 <p class="section-sub">Filter by category to find your next meal.</p>
                 <div id="filters" class="filters"></div>
                 <p id="menu-status" class="status" role="status"></p>
@@ -52,12 +67,14 @@
         <section id="about">
             <div class="container about">
                 <div>
-                    <h2>Our story</h2>
+                    <p class="eyebrow">La nostra storia</p>
+                    <h2>Simple ingredients.<br>Big-hearted cooking.</h2>
                     <p>Bella Tavola began with one family recipe and a simple idea: great Italian food needs
                         honest ingredients and time. Our pasta is rolled by hand every morning.</p>
+                    <a href="#reserve" class="text-link">Come share our table <span>↗</span></a>
                 </div>
                 <div class="info-box">
-                    <h3>Visit us</h3>
+                    <p class="eyebrow">Find your way here</p><h3>Visit us</h3>
                     <p>12 Garden Road, Karachi</p>
                     <p>Open every day, 12:00 - 22:00</p>
                     <p>+92 300 0000000</p>
@@ -66,7 +83,7 @@
         </section>
         <section id="reserve" class="alt">
             <div class="container narrow">
-                <h2>Reserve a table</h2>
+                <p class="eyebrow">Your table is waiting</p><h2>Make an evening of it.</h2>
                 <p class="section-sub">Open every day 12:00 - 22:00. Last seating 21:00.</p>
                 <form id="reservation-form" novalidate>
                     <div class="form-row">
@@ -98,7 +115,7 @@
     </main>
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Bella Tavola. Portfolio project, not a real restaurant.</p>
+            <div class="footer-inner"><a href="#home" class="logo"><span class="logo-mark">BT</span><span>Bella Tavola</span></a><p>&copy; 2026 Bella Tavola. Portfolio project, not a real restaurant.</p><a href="#home" class="back-top">Back to top ↑</a></div>
         </div>
     </footer>
     <button id="chat-toggle" class="chat-toggle" aria-label="Open chat assistant">Ask us</button>
