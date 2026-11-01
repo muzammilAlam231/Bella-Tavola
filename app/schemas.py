@@ -34,10 +34,10 @@ class ReservationCreate(BaseModel):
     reservation_date: dt.date
     reservation_time: dt.time
     special_requests: str | None = Field(default=None, max_length=300)
-    @field_validator("name")
+    @field_validator("name", mode="before")
     @classmethod
     def tidy_name(cls, v: str) -> str:
-        return " ".join(v.split())              # collapse extra spaces
+        return " ".join(v.split()) if isinstance(v, str) else v
     @field_validator("email")
     @classmethod
     def lower_email(cls, v: str) -> str:
